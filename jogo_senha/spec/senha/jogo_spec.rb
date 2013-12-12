@@ -61,7 +61,7 @@ module Senha
 					jogo.avaliar('2545')
 				end
 
-				it "com 01 dígito correto e 01 dígito exato (nesta ordem)" do
+				it "com 01 dígito exato e 01 dígito correto (nesta ordem)" do
 					jogo.iniciar('1234')
 					output.should_receive(:puts).with('+-')
 					jogo.avaliar('2535')
@@ -71,6 +71,32 @@ module Senha
 					jogo.iniciar("1234")
 					output.should_receive(:puts).with('++')
 					jogo.avaliar('5254')
+				end
+			end
+
+			context "com 03 dígitos corretos" do
+				it "envia avaliação '---'" do
+					jogo.iniciar("1234")
+					output.should_receive(:puts).with('---')
+					jogo.avaliar('5123')
+				end
+
+				it "com 01 dígito exato e 02 corretos (nesta ordem)" do
+					jogo.iniciar("1234")
+					output.should_receive(:puts).with('+--')
+					jogo.avaliar('5124')
+				end
+
+				it "com 02 dígito exato e 01 correto (nesta ordem)" do
+					jogo.iniciar("1234")
+					output.should_receive(:puts).with('++-')
+					jogo.avaliar('5134')
+				end
+
+				it "envia avaliação '+++'" do
+					jogo.iniciar("1234")
+					output.should_receive(:puts).with('+++')
+					jogo.avaliar('5234')
 				end
 			end
 		end

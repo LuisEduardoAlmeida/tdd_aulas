@@ -125,7 +125,8 @@ module Senha
 					jogo.avaliar('1234')
 				end
 			end
-			context "Com caracteres não-numéricos" do
+
+			context "com caracteres não-numéricos" do
 				it "com 01 caractere não-numérico'" do
 					jogo.iniciar("1234")
 					output.should_receive(:puts).with('---')

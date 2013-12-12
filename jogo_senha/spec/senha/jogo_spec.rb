@@ -66,6 +66,12 @@ module Senha
 					output.should_receive(:puts).with('+-')
 					jogo.avaliar('2535')
 				end
+
+				it "envia avaliação com '++'" do
+					jogo.iniciar("1234")
+					output.should_receive(:puts).with('++')
+					jogo.avaliar('5254')
+				end
 			end
 		end
 	end

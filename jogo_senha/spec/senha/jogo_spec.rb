@@ -99,6 +99,32 @@ module Senha
 					jogo.avaliar('5234')
 				end
 			end
+
+			context "com todos os dígitos corretos" do
+				it "envia avaliação '----'" do
+					jogo.iniciar("1234")
+					output.should_receive(:puts).with('----')
+					jogo.avaliar('4321')
+				end
+
+				it "com 01 dígito exatos e 03 corretos (nesta ordem)" do
+					jogo.iniciar("1234")
+					output.should_receive(:puts).with('+---')
+					jogo.avaliar('1423')
+				end
+
+				it "com 02 dígitos exatos e 02 corretos (nesta ordem)" do
+					jogo.iniciar("1234")
+					output.should_receive(:puts).with('++--')
+					jogo.avaliar('1243')
+				end
+
+				it "envia avaliação '++++'" do
+					jogo.iniciar("1234")
+					output.should_receive(:puts).with('++++')
+					jogo.avaliar('1234')
+				end
+			end
 		end
 	end
 end

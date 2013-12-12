@@ -125,6 +125,29 @@ module Senha
 					jogo.avaliar('1234')
 				end
 			end
+			context "Com caracteres não-numéricos" do
+				it "com 01 caractere não-numérico'" do
+					jogo.iniciar("1234")
+					output.should_receive(:puts).with('---')
+					jogo.avaliar('432A')
+				end
+				it "com 02 caracteres não-numéricos'" do
+					jogo.iniciar("1234")
+					output.should_receive(:puts).with('--')
+					jogo.avaliar('43BA')
+				end
+				it "com 03 caracteres não-numéricos'" do
+					jogo.iniciar("1234")
+					output.should_receive(:puts).with('-')
+					jogo.avaliar('4CBA')
+				end
+				it "com 04 caracteres não-numéricos'" do
+					jogo.iniciar("1234")
+					output.should_receive(:puts).with('')
+					jogo.avaliar('DCBA')
+				end
+			end
+
 		end
 	end
 end

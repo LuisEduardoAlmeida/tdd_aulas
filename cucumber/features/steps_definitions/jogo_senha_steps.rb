@@ -49,5 +49,57 @@ Quando(/^é fornecida uma (\d+)$/) do |contra_senha|
 end
 
 Então(/^recebe a avaliação ''$/) do
-  #pending # express the regexp above with the code you wish you had
+  @avaliacao.should == ""
+end
+
+Então(/^recebe a avaliação '\+'$/) do
+  @avaliacao.should == "+"
+end
+
+Então(/^recebe a avaliação '\-'$/) do
+  @avaliacao.should == "-"
+end
+
+Então(/^recebe a avaliação '\+\+'$/) do
+  @avaliacao.should == "++"
+end
+
+Então(/^recebe a avaliação '\+\-'$/) do
+  @avaliacao.should == "+-"
+end
+
+Então(/^recebe a avaliação '\-\-'$/) do
+  @avaliacao.should == "--"
+end
+
+Então(/^recebe a avaliação '\+\+\+'$/) do
+  @avaliacao.should == "+++"
+end
+
+Então(/^recebe a avaliação '\+\+\-'$/) do
+  @avaliacao.should == "++-"
+end
+
+Então(/^recebe a avaliação '\+\-\-'$/) do
+  @avaliacao.should == "+--"
+end
+
+Então(/^recebe a avaliação '\-\-\-'$/) do
+  @avaliacao.should == "---"
+end
+
+Então(/^recebe a avaliação '\+\+\+\+'$/) do
+  @avaliacao.should == "++++"
+end
+
+Então(/^recebe a avaliação '\+\+\-\-'$/) do
+  @avaliacao.should == "++--"
+end
+
+Então(/^recebe a avaliação '\+\-\-\-'$/) do
+  @avaliacao.should == "+---"
+end
+
+Então(/^recebe a avaliação '\-\-\-\-'$/) do
+  @avaliacao.should == "----"
 end

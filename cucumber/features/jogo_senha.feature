@@ -17,3 +17,29 @@ Funcionalidade: Jogo recebe uma senha e uma contra-senha e verifica semelhanças
 		| senha | contrasenha | avaliacao |
 		| 1234 | 5555 | '' |
 		| 1234 | 6666 | '' |
+
+		Cenários: com 01 dígito correto
+		| senha | contrasenha | avaliacao |
+		| 1234 | 1555 | '+' |
+		| 1234 | 2555 | '-' |
+
+		Cenários: com 01 dígito correto
+		| senha | contrasenha | avaliacao |
+		| 1234 | 5254 | '++' |
+		| 1234 | 5154 | '+-' |
+		| 1234 | 2545 | '--' |
+		| 1234 | 2535 | '+-' |
+
+		Cenários: com 03 dígitos corretos
+		| senha | contrasenha | avaliacao |
+		| 1234 | 5234 | '+++' |
+		| 1234 | 5134 | '++-' |
+		| 1234 | 5124 | '+--' |
+		| 1234 | 5123 | '---' |
+
+		Cenários: com todos corretos
+		| senha | contrasenha | avaliacao |
+		| 1234 | 1234 | '++++' |
+		| 1234 | 1243 | '++--' |
+		| 1234 | 1423 | '+---' |
+		| 1234 | 4321 | '----' |

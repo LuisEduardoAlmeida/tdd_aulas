@@ -13,31 +13,31 @@ Funcionalidade: Jogo recebe uma senha e uma contra-senha e verifica semelhanças
 		Quando é fornecida uma <contrasenha>
 		Então recebe a avaliação <avaliacao>
 
-		Cenário: sem acertos
+		Exemplos: sem acertos
 		| senha | contrasenha | avaliacao |
-		| 1234 | 5555 | '' |
-		| 1234 | 6666 | '' |
+		| 1234  | 5555        | '' |
+		| 1234  | 6666        | '' |
 
-		Cenário: com 01 dígito correto
+		Exemplos: com 01 dígito correto
 		| senha | contrasenha | avaliacao |
-		| 1234 | 1555 | '+' |
-		| 1234 | 2555 | '-' |
+		| 1234  | 1555        | '+' |
+		| 1234  | 2555        | '-' |
 
-		Cenário: com 01 dígito correto
+		Exemplos: com 01 dígito correto
 		| senha | contrasenha | avaliacao |
-		| 1234 | 5254 | '++' |
-		| 1234 | 5154 | '+-' |
-		| 1234 | 2545 | '--' |
-		| 1234 | 2535 | '+-' |
+		| 1234  | 5254        | '++' |
+		| 1234  | 5154        | '+-' |
+		| 1234  | 2545        | '--' |
+		| 1234  | 2535        | '+-' |
 
-		Cenário: com 03 dígitos corretos
+		Exemplos: com 03 dígitos corretos
 		| senha | contrasenha | avaliacao |
-		| 1234 | 5234 | '+++' |
-		| 1234 | 5134 | '++-' |
-		| 1234 | 5124 | '+--' |
-		| 1234 | 5123 | '---' |
+		| 1234  | 5234        | '+++' |
+		| 1234  | 5134        | '++-' |
+		| 1234  | 5124        | '+--' |
+		| 1234  | 5123        | '---' |
 
-		Cenário: com todos corretos
+		Exemplos: com todos corretos
 		| senha | contrasenha | avaliacao |
 		| 1234 | 1234 | '++++' |
 		| 1234 | 1243 | '++--' |

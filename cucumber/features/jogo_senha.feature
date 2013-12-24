@@ -9,7 +9,7 @@ Funcionalidade: Jogo recebe uma senha e uma contra-senha e verifica semelhanças
 
 	Esquema do Cenário: Avalia uma contra-senha
 
-		Dada uma <senha>
+		Dado que inicio com a <senha>
 		Quando é fornecida uma <contrasenha>
 		Então recebe a avaliação <avaliacao>
 

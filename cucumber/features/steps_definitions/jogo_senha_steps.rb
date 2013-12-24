@@ -7,10 +7,11 @@ class Jogo
 
 	def iniciar senha
 		@senha = senha
+		"Bem-vindo ao Senha. \nInforme o jogador."
 	end
 
 	def avaliar contra_senha
-		avaliacao = ''
+		avaliacao = ''		
 
 		(0..3).each do |index|
 			if digito_exato?(contra_senha, index)
@@ -40,66 +41,67 @@ Before do
 	@jogo = Jogo.new
 end
 
-Dada(/^uma (\d+)$/) do |senha|
-  @jogo.iniciar senha
+Dado /^que inicio com a (\d+)$/ do |senha|
+  mensagem = @jogo.iniciar senha
+  mensagem.should == "Bem-vindo ao Senha. \nInforme o jogador."
 end
 
 Quando(/^é fornecida uma (\d+)$/) do |contra_senha|
   @avaliacao = @jogo.avaliar contra_senha
 end
 
-Então(/^recebe a avaliação ''$/) do
+Entao(/^recebe a avaliação ''$/) do
   @avaliacao.should == ""
 end
 
-Então(/^recebe a avaliação '\+'$/) do
+Entao(/^recebe a avaliação '\+'$/) do
   @avaliacao.should == "+"
 end
 
-Então(/^recebe a avaliação '\-'$/) do
+Entao(/^recebe a avaliação '\-'$/) do
   @avaliacao.should == "-"
 end
 
-Então(/^recebe a avaliação '\+\+'$/) do
+Entao(/^recebe a avaliação '\+\+'$/) do
   @avaliacao.should == "++"
 end
 
-Então(/^recebe a avaliação '\+\-'$/) do
+Entao(/^recebe a avaliação '\+\-'$/) do
   @avaliacao.should == "+-"
 end
 
-Então(/^recebe a avaliação '\-\-'$/) do
+Entao(/^recebe a avaliação '\-\-'$/) do
   @avaliacao.should == "--"
 end
 
-Então(/^recebe a avaliação '\+\+\+'$/) do
+Entao(/^recebe a avaliação '\+\+\+'$/) do
   @avaliacao.should == "+++"
 end
 
-Então(/^recebe a avaliação '\+\+\-'$/) do
+Entao(/^recebe a avaliação '\+\+\-'$/) do
   @avaliacao.should == "++-"
 end
 
-Então(/^recebe a avaliação '\+\-\-'$/) do
+Entao(/^recebe a avaliação '\+\-\-'$/) do
   @avaliacao.should == "+--"
 end
 
-Então(/^recebe a avaliação '\-\-\-'$/) do
+Entao(/^recebe a avaliação '\-\-\-'$/) do
   @avaliacao.should == "---"
 end
 
-Então(/^recebe a avaliação '\+\+\+\+'$/) do
+Entao(/^recebe a avaliação '\+\+\+\+'$/) do
   @avaliacao.should == "++++"
 end
 
-Então(/^recebe a avaliação '\+\+\-\-'$/) do
+Entao(/^recebe a avaliação '\+\+\-\-'$/) do
   @avaliacao.should == "++--"
 end
 
-Então(/^recebe a avaliação '\+\-\-\-'$/) do
+Entao(/^recebe a avaliação '\+\-\-\-'$/) do
   @avaliacao.should == "+---"
 end
 
-Então(/^recebe a avaliação '\-\-\-\-'$/) do
+Entao(/^recebe a avaliação '\-\-\-\-'$/) do
   @avaliacao.should == "----"
 end
